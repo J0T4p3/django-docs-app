@@ -1,0 +1,15 @@
+{
+    "typeCheckingMode": "basic",
+    "reportMissingImports": true,
+    "reportMissingTypeStubs": false,
+    "pythonVersion": "3.13",
+    "venvPath": "./venv",
+    "include": [
+        "."
+    ],
+    "plugins": [
+        {
+            "name": "mypy_django_plugin.main"
+        }
+    ],
+}

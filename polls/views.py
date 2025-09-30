@@ -1,10 +1,10 @@
 from django.db.models import F
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 
-from .models import Question, Choice
+from polls.models import Choice, Question
 
 
 class IndexView(generic.ListView):
@@ -24,10 +24,11 @@ class ResultsView(generic.DetailView):
     model = Question
     template_name = "polls/results.html"
 
+
 def votes(request, question_id):
     question = get_object_or_404(Question, pk=question_id)
     try:
-        selected_choice = question.choice_set.get(pk=request.POST["choice"])
+        selected_choice = question.choices.get(pk=request.POST["choice"])  # type:ignore
     except (KeyError, Choice.DoesNotExist):
         return render(
             request,
