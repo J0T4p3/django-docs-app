@@ -1,7 +1,7 @@
 [project]
 name = "django-docs-app"
 version = "0.1.0"
-description = "Add your description here"
+description = "A project to learn Django using the docs as resource."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
@@ -12,13 +12,13 @@ dependencies = [
 dev = [
     "black>=25.9.0",
     "isort>=6.0.1",
+    "pylint-django>=2.6.1",
 ]
 
+# Dev tooling configs
 [tool.pylint.main]
 ignore-patterns = ["^\\.#"]
 load-plugins = ["pylint_django"]
-
-py-version = '3.13'
 
 [tool.pylint.basic]
 no-docstring-rgx = "^_"
